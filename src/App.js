@@ -1,37 +1,36 @@
-import {useContext, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Feed from './components/Feed/Feed'
 import UsernamePrompt from './components/UsernamePrompt/UsernamePrompt'
-import styles from './App.module.css';
 
+import {Ws} from './lib/Websockets';
 import {getCookie} from './lib/Cookies';
 
-function App() {
 
-  //hooks
-  const [username, setUsername] = useState('');
+export const Username = React.createContext({});
+export const Websocket= React.createContext({});
+
+export default function App() {
+
+  /*--------------hooks--------------*/
+  const [username, setUsername] = useState(getCookie("username"));
 
 
-  // component functions
+  /*--------------component functions--------------*/
   const showPromptOrChat = () =>{
-
-    let username_cookie = getCookie("username");
-
-    if(username === "" && username_cookie !== ""){
-      setUsername(username_cookie);
-    }
-
     if (username !== ""){
       return <Feed/>;
     }
 
-    return <UsernamePrompt/>;
+    return <UsernamePrompt changeUsername={setUsername}/>;
   };
 
   return (
-    <>
-     {showPromptOrChat()}
-    </>
+    <Websocket.Provider value={new Ws('192.168.1.118:8080','chat')}>
+      <Username.Provider value={username}>
+          {showPromptOrChat()}
+      </Username.Provider>
+    </Websocket.Provider>
   );
 }
 
-export default App;
+

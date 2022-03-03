@@ -10,7 +10,7 @@ class Ws {
 
             let func = this.eventList.get(wsMsg.event);
 
-            if (func != undefined){
+            if (func !== undefined){
                 func(this, wsMsg.data);
             }
         });
@@ -19,10 +19,14 @@ class Ws {
             
             let func = this.eventList.get('open');
 
-            if (func != undefined){
+            if (func !== undefined){
                 func(this, {});
             }
-        }); 
+        });
+
+        window.onunload = ()=>{
+            this.ws.close();
+        };
     }
 
     

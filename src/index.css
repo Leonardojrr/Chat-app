@@ -1,5 +1,18 @@
 body {
-    width: 100vw;
+    min-width: 100vw;
     min-height: 100vh;
     margin: 0;
+    overflow: auto;
+}
+
+#root{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    background:  #464d63;
+    overflow: auto;
 }

@@ -1,23 +1,33 @@
-import {useEffect, useState} from 'react';
-import {Ws} from '../../lib/Websockets';
+import React, {useEffect, useContext, useState} from 'react';
+import {Message, ResponseMessage, OwnMessage} from './Feed_components/Messages/Messages';
+import Input from './Feed_components/Input/Input';
 import styles from './Feed.module.css';
+import {Username, Websocket} from '../../App';
 
-function Feed(props) {
+export default function Feed(props) {
 
-  let return_message = (item) =>{
+    /*--------------hooks--------------*/
+    const username = useContext(Username);
+    const ws = useContext(Websocket);
+    
+  
+  
+    /*--------------component functions--------------*/
+
+  let displayMessages = (item) =>{
     return (
-      <div className='message-container'>
-        <span className='message-user'>{item.user}</span>
-        <span className='message-value'>{item.message}</span>
+      <div className={styles.message}>
+        <Message/>
       </div>
     )
   }
 
   return (
-    <div className="Feed">
-      {props.messagesList.map(return_message)}
+    <div className={styles.Feed}>
+      <div className={styles.messages_list}>
+        {displayMessages()}
+      </div>
+      <Input/>
     </div>
   );
 }
-
-export default Feed;

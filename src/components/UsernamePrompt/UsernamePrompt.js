@@ -2,6 +2,7 @@ import React, {useState,}from 'react';
 import styles from './UsernamePrompt.module.css';
 
 function Username(props){
+    
 
     const [userinput, setUserInput] =  useState('');
 
@@ -11,16 +12,16 @@ function Username(props){
 
     const sendUsername = () =>{
         document.cookie = `username=${userinput}`;
-        props.setUsername(userinput);
+        props.changeUsername(userinput);
     }
 
 
     return(
-        <div className='username-container'>
-            <span className='username'>Choose a Username</span>
-            <div className='username-input-container'>
+        <div className={styles.container}>
+            <span className={styles.title}>Choose a Username</span>
+            <div className={styles.input_container}>
                 <input value={userinput} onChange={changeInput} type='text' />
-                <button onClick={sendUsername}>Set</button>
+                <button onClick={sendUsername}>O</button>
             </div>
         </div>
     )
