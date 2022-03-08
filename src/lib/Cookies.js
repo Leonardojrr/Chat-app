@@ -1,4 +1,4 @@
-function getCookie(cookie_key: string){
+function getCookie(cookie_key){
     let cookies = document.cookie;
 
     for (const cookie_elt of cookies.split(';')){

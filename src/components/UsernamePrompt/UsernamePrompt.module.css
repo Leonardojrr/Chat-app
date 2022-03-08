@@ -50,8 +50,6 @@
 }
 
 .input_container input{
-    border: 0;
-    padding: 0;
     border-radius: 40px 15px 15px 40px;
     width: 75%;
     height: 80%;
@@ -60,7 +58,8 @@
     padding-left: 14px;
     background-color: #a3adcc;
     outline: transparent;
-    font-size: 0.8rem;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
     color:#05f0a9;
 }
 

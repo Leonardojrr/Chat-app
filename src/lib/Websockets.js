@@ -38,10 +38,6 @@ class Ws {
         let wsMsg = {event , data};
         this.ws.send(JSON.stringify(wsMsg));
     }
-
-    close(){
-        this.ws.close();
-    }
 }
 
 

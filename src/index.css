@@ -6,13 +6,12 @@ body {
 }
 
 #root{
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    min-width: 100vw;
-    min-height: 100vh;
-    margin: 0;
-    background:  #464d63;
-    overflow: auto;
+    background-color: #464d63;
 }

@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    align-items: center;
+    margin: 6px 0 6px 0
+}
+
+.own{
+    justify-content: right;
+}
+
+.extern{
+    justify-content: left;
+}
+
+.message.own{
+    margin-right: 10px;
+    background: #04ba83;
+}
+
+.message.extern{
+    margin-left: 10px;
+    background: #a3adcc;
+}
+
+@media (orientation: portrait){
+    .message{
+        font-size: 1.3rem;
+    }
+}
+
+.message{
+    font-family: 'Nunito Sans';
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 4px;
+}
+
